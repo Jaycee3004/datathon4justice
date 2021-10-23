@@ -1,8 +1,49 @@
 import re
 import json
 f = open("newfile.txt", "r")
+outfile= open("newfile_output.csv","w")
 
 
+pattern=["\d\d\d\d Initiated .*","Call Taker: .*","Location/Address:","Unit:\s\d\d","Vehicle:.+","Race:\s\w\sSex:\s\w","Operator: .+"]
+
+
+def check_for_patterns(line,operator=True):
+    
+    if len(re.findall(pattern[0],line))!=0:
+        result=line.split(" Initiated ")
+        return [0]+result
+    elif len(re.findall(pattern[1],line))!=0:
+        result = line.split("Call Taker:")[1:]
+        return [1]+result
+    elif len(re.findall(pattern[2],line))!=0:
+        result=line.split("Location/Address:")[1:]
+        return [2]+result
+    elif len(re.findall(pattern[3],line))!=0:
+        result=line.split("Unit:")[1:]
+        return [3]+result
+    elif len(re.findall(pattern[4],line))!=0:
+        result=line.split("Vehicle:")[1:]
+        return [4]+result
+    elif len(re.findall(pattern[5],line))!=0:
+        new_line=str(re.findall(pattern[5],line))[1:-1]
+        #print(new_line)
+        result=new_line.split(" ")
+        if(operator):
+            return [5]+[result[1]]+[result[3]]
+        else:
+            return [7]+[result[1]]+[result[3]]
+    elif len(re.findall(pattern[6],line))!=0:
+        result=line.split("Operator:")[1:]
+        operator=False
+        return [6]+result
+    return []
+
+def string_maker(list):
+    string=""
+    for element in list:
+        string+=str(element)+","
+    return string[:-1]
+        
 
 toggle=0
 file_list=[]
@@ -18,12 +59,30 @@ for line in f:
 
 file_list.append(temp_list)
 
-for element in file_list:
-    print("start report")
-    for i in range(len(element)):
-        print("Line "+str(i)+" "+ element[i])
+for call_details in file_list:
+    extracted_detail=[]
+    for line in call_details:
+        extracted_detail.append(check_for_patterns(line))
+    operator=True
 
-    print("end report")
+    final_string=""
+    for i in range(7):
+        for item in extracted_detail:
+            if(len(item)>0 and item[0]==i):
+                final_string+=string_maker(item[1:])
+                break
+        final_string+=","
 
-with open('first_page.json', 'w') as outfile:
-    json.dump(file_list, outfile, indent=4)
+    print("YEETING")
+    print(final_string[:-1])
+    print("\n\n\n")
+    outfile.write(final_string+"\n")
+
+    
+        
+
+###
+#with open('first_page.json', 'w') as outfile:
+#    json.dump(file_list, outfile, indent=4)
+
+## Iterating over file_list on different call numbers
