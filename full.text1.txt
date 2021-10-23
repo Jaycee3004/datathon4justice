@@ -1,14 +1,12 @@
  For Date: 01/01/2019 - Tuesday
 Cail Number Time Call Reason Action
 Duplicate
--seperation-
- 0341 Initiated - PARKING CHECK SERVICES RENDERED ;
+19-1 0341 Initiated - PARKING CHECK SERVICES RENDERED ;
 Call Taker: PATROL CRAIG A EICHHAMMER
 | Location/Address: [WIA 249] NORTH ST
 Unit: 31
 Arvd-03:42:00 Clrd-03:42:17
--seperation-
- 0834 Initiated - BUILDING CHECK BULLDING CHECKED/ SECURED
+19-4 0834 Initiated - BUILDING CHECK BULLDING CHECKED/ SECURED
 Call Taker: PATROL DAVID JENNINGS, D
 | Location/Address: COLD SPRING RD
 | Unit: 34
@@ -19,8 +17,7 @@ Narrative:
 done
 . Narrative: :
 : Checked 0259 | |
--seperation-
- . 6842 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
+19-5 . 6842 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
 Call Taker: PATROL DAVID JENNINGS, D
 Location/Address: LONGVIEW TER
 Unit: 34
@@ -29,8 +26,7 @@ Unit: 34
 ( checked
 _ Narrative:
 Checked 0208
--seperation-
- 0846 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
+19-6 0846 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
 Call Taker: PATROL DAVID JENNINGS, D
 Location/Address: FRENIER AVE
 , Unit: 34
@@ -39,8 +35,7 @@ Narrative:
 checked
 | Narrative:
 , Checked 0159
--seperation-
- 0847 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
+19-7 0847 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
 Call Taker: PATROL DAVID JENNINGS, D
 Location/Address: HARWOOD ST
 Unit: 34
@@ -64,8 +59,7 @@ Narrative:
 01/02/2019 0236 Checked S3
 Narrative:
 7 01/02/2019 0501 Checked S3
--seperation-
- 0903 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
+19-9 0903 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
 Call Taker: PATROL DAVID JENNINGS, D
 Location/Address: HAWTHORNE RD
 | Unit: 34 |
@@ -83,8 +77,7 @@ Arvdad-09:06:22 Clrd-09:07:57
 . done
 . Narrative:
 01/02/2019 0216 Checked §3
--seperation-
-1 0941 Initiated ~- BUILDING CHECK BUILDING CHECKED/SECURED
+19-11 0941 Initiated ~- BUILDING CHECK BUILDING CHECKED/SECURED
 ‘Call Taker: PATROL DAVID JENNINGS, D
 Location/Address: NORTH ST
 Unit: 34
@@ -93,8 +86,7 @@ Narrative:
 checked
 Narrative:
 01/02/2019 0305 Checked S3
--seperation-
-2 1004 Initiated - ROAD CONDITIONS SERVICES RENDERED
+19-12 1004 Initiated - ROAD CONDITIONS SERVICES RENDERED
 Call Taker: PATROL DAVID JENNINGS, D
 Location/Address: SOUTHWORTH ST
 Unit: 34

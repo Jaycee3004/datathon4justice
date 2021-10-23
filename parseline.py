@@ -7,16 +7,7 @@ import json
 ### Converting raw text input to computable input
 ### Pre-Processing
 
-f=open("big_file_trial.txt","r")
-file_contents=f.read()
-f.close()
-#f.seek(0)
-#print(file_contents)
-f_temp = open("temp.txt", "w")
-new_file_contents= re.sub(r".\d-\d", "-seperation-\n", file_contents)
-#print(new_file_contents)
-f_temp.write(new_file_contents)
-f_temp.close()
+
 ### Finished initial conversion
 
 ### reopening the temp.txt with f
