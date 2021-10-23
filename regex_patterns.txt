@@ -1,5 +1,5 @@
 \d\d\d\d Initiated .*
-Call Taker: .*
+.+Call Taker: .*
 Location/Address:\s\w
 Unit:\s\d\d
 Initiated\s-\sMOTOR\sVEHICLE\sSTOP\sCITATION 

@@ -1,7 +1,25 @@
 import re
 import json
-f = open("newfile.txt", "r")
-outfile= open("newfile_output.csv","w")
+f=open("full.text1.txt","r")
+f_temp = open("newfile2.txt", "w")
+
+#Computations on the newfile.txt
+file_contents=f.read()
+f.seek(0)
+#print(file_contents)
+new_file_contents= re.sub("^.\\d-\\d", "-seperation-\\n", file_contents)
+#print(new_file_contents)
+f_temp.write(new_file_contents)
+f_temp.close()
+
+
+
+
+
+outfile= open("full.text1.csv","w")
+
+
+
 
 
 pattern=["\d\d\d\d Initiated .*","Call Taker: .*","Location/Address:","Unit:\s\d\d","Vehicle:.+","Race:\s\w\sSex:\s\w","Operator: .+"]
@@ -48,17 +66,19 @@ def string_maker(list):
 toggle=0
 file_list=[]
 temp_list=[]
+
 for line in f:
+    print("going here")
+
     line=line[:-1]
     if line == "-seperation-":
         file_list.append(temp_list)
         temp_list=[]
     else:
         temp_list.append(line)
-    #print(line)
+    print(line)
 
 file_list.append(temp_list)
-
 for call_details in file_list:
     extracted_detail=[]
     for line in call_details:
@@ -73,9 +93,6 @@ for call_details in file_list:
                 break
         final_string+=","
 
-    print("YEETING")
-    print(final_string[:-1])
-    print("\n\n\n")
     outfile.write(final_string+"\n")
 
     
