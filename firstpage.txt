@@ -1,5 +1,5 @@
 For Date: 01/01/2019 - Tuesday
-Cail Number Time Call Reason Action
+Call Number Time Call Reason Action
 Duplicate
 1/*\d-\d
 -seperation-
@@ -21,9 +21,13 @@ checked
 done
 . Narrative:
 | Checked 0259 | |
+<<<<<<< HEAD
+19-5 | 0842 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
+=======
 L/*\d-\d
 -seperation-
  | 0842 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
+>>>>>>> 5f44d23daee6f2bacb69a290a38f5a896fe319cd
 Call Taker: PATROL DAVID JENNINGS, D
 Location/Address: LONGVIEW TER
 Unit: 34
