@@ -1,5 +1,8 @@
 import re
-f = open("firstpage.txt", "r")
+import json
+f = open("newfile.txt", "r")
+
+
 
 toggle=0
 file_list=[]
@@ -21,3 +24,6 @@ for element in file_list:
         print("Line "+str(i)+" "+ element[i])
 
     print("end report")
+
+with open('first_page.json', 'w') as outfile:
+    json.dump(file_list, outfile, indent=4)
