@@ -1,0 +1,93 @@
+ For Date: 01/01/2019 - Tuesday
+Cail Number Time Call Reason Action
+Duplicate
+19-1 0341 Initiated - PARKING CHECK SERVICES RENDERED ;
+Call Taker: PATROL CRAIG A EICHHAMMER
+| Location/Address: [WIA 249] NORTH ST
+Unit: 31
+Arvd-03:42:00 Clrd-03:42:17
+19-4 0834 Initiated - BUILDING CHECK BULLDING CHECKED/ SECURED
+Call Taker: PATROL DAVID JENNINGS, D
+| Location/Address: COLD SPRING RD
+| Unit: 34
+. Arvd-08:34:38 Clrd-08:35:33
+Narrative:
+: checked
+| Narrative:
+done
+. Narrative: :
+: Checked 0259 | |
+19-5 . 6842 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
+Call Taker: PATROL DAVID JENNINGS, D
+Location/Address: LONGVIEW TER
+Unit: 34
+| Arvd-08:43:07 Clrd-08:43:21
+: Narrative:
+( checked
+_ Narrative:
+Checked 0208
+19-6 0846 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
+Call Taker: PATROL DAVID JENNINGS, D
+Location/Address: FRENIER AVE
+, Unit: 34
+. Arvd-08:46:51 Cird-08:47:607
+Narrative:
+checked
+| Narrative:
+, Checked 0159
+19-7 0847 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
+Call Taker: PATROL DAVID JENNINGS, D
+Location/Address: HARWOOD ST
+Unit: 34
+Arvd-08:47:37 Cilrd-08:48:05
+' Narrative:
+checked
+Narrative:
+, Checked 0201
+ 19-8 . 0859 Initiated ~- BUILDING CHECK BUILDING CHECKED/SECURED
+| ' Call Taker: PATROL DAVID JENNINGS, D
+Location/Address: [WIA 1832] NORTH HOOSAC RD
+Unit: 34
+. Arvd-08:59:22 Clrd-09:00:14
+; Narrative:
+Checked
+| - Narrative:
+checked
+| Narrative:
+checked
+Narrative:
+01/02/2019 0236 Checked S3
+Narrative:
+7 01/02/2019 0501 Checked S3
+19-9 0903 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
+Call Taker: PATROL DAVID JENNINGS, D
+Location/Address: HAWTHORNE RD
+| Unit: 34 |
+Arvd-09:03:18 Clrd-09:03:42
+- Narrative: )
+. done
+Narrative:
+| Checked 6151
+| 19-10 0906 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
+Call Taker: PATROL DAVID JENNINGS, D
+Location/Address: PETERSBURG RD
+Unit: 34
+Arvdad-09:06:22 Clrd-09:07:57
+- Narrative:
+. done
+. Narrative:
+01/02/2019 0216 Checked §3
+19-11 0941 Initiated ~- BUILDING CHECK BUILDING CHECKED/SECURED
+‘Call Taker: PATROL DAVID JENNINGS, D
+Location/Address: NORTH ST
+Unit: 34
+, Arvd-09:41:46 Clrd-09:41:58
+Narrative:
+checked
+Narrative:
+01/02/2019 0305 Checked S3
+19-12 1004 Initiated - ROAD CONDITIONS SERVICES RENDERED
+Call Taker: PATROL DAVID JENNINGS, D
+Location/Address: SOUTHWORTH ST
+Unit: 34
+Arvda-10:05:59 Cird-10:07:54
