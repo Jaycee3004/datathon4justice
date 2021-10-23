@@ -1,5 +1,5 @@
 For Date: 01/01/2019 - Tuesday
-Cail Number Time Call Reason Action
+Call Number Time Call Reason Action
 Duplicate
 19-1 0341 Initiated - PARKING CHECK SERVICES RENDERED ;
 Call Taker: PATROL CRAIG A EICHHAMMER
@@ -17,7 +17,7 @@ checked
 done
 . Narrative:
 | Checked 0259 | |
-L9-5 | 0842 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
+19-5 | 0842 Initiated - BUILDING CHECK BUILDING CHECKED/SECURED
 Call Taker: PATROL DAVID JENNINGS, D
 Location/Address: LONGVIEW TER
 Unit: 34
