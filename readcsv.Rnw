@@ -7,24 +7,35 @@ library(tidyverse)
 library(readxl)
 Cells2019 <- read_csv("C:/Users/USER/Desktop/Jaycee is a cool nerd/datathon4justice/full.text.2019.column.names.csv", 
                       col_names=TRUE)
+Cells2020 <- read_csv("C:/Users/USER/Desktop/Jaycee is a cool nerd/datathon4justice/full.text.2020.fix.csv", 
+                      col_names=TRUE)
 
+Cells2019 <- Cells2019%>% select(-`...10`)
+Cells2020 <- Cells2020%>% select(-c(`Other1`,`Other2`))
+  
+police.dat <- rbind(Cells2019,Cells2020)
 
-Cells2019 <- Cells2019%>%
+police.dat <- police.dat%>%
   mutate(MVS = if_else(grepl('MOTOR VEHICLE STOP', `Reason For Call/Patrol Officer Name`,
                              ignore.case = TRUE), TRUE, FALSE)) %>% # keep motor vehicle stops
-  filter(MVS==TRUE)%>%select(-c(MVS,`...10`,`Car/Race`))%>% # delete columns
+  filter(MVS==TRUE)%>%select(-c(MVS,`Car/Race`))%>% # delete columns
   rename(Race =`Race/Gender`, Gender = `Gender/Extra Information`,
          `Reason For Call` = `Reason For Call/Patrol Officer Name`)%>% # rename columns
   mutate(Outcome = case_when(
-    grepl('WARNING', `Reason For Call`, ignore.case = TRUE) ~ "WARNING",
-    grepl('ARREST', `Reason For Call`, ignore.case = TRUE) ~ "ARRREST",
-    grepl('VIL', `Reason For Call`, ignore.case = TRUE) ~ "CIVIL CITATION",
-    grepl('CRIMINAL', `Reason For Call`, ignore.case = TRUE) ~ "CRIMINAL COMPLAINT",
-    grepl('ACTION', `Reason For Call`, ignore.case = TRUE) ~ "NO ACTION REQUIRED",
-    grepl('SERVICE', `Reason For Call`, ignore.case = TRUE) ~ "SERVICES RENDERED"))%>%
+    grepl('WARNING', `Reason For Call`, ignore.case = TRUE) ~ 3,
+    grepl('ARREST', `Reason For Call`, ignore.case = TRUE) ~ 6,
+    grepl('VIL', `Reason For Call`, ignore.case = TRUE) ~ 4,
+    grepl('CRIMINAL', `Reason For Call`, ignore.case = TRUE) ~ 5,
+    grepl('ACTION', `Reason For Call`, ignore.case = TRUE) ~ 2,
+    grepl('SERVICE', `Reason For Call`, ignore.case = TRUE) ~ 1))%>%
   mutate(Gender = gsub("'","",as.character(Gender)))
   
-
+# 3: WARNING: no legal action, or fines/paperwork
+# 6: ARRREST 
+# 4: CIVIL CITATION: ticket/fine 
+# 5: CRIMINAL COMPLAINT: crime probably committed 
+# 2: NO ACTION REQUIRED
+# 1: SERVICES RENDERED: police helped you
   
 @
 
