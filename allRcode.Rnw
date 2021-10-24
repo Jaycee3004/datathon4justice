@@ -33,4 +33,46 @@ close(file.output)
 # note: the txt files are ordered (file01, file02, ...)
 @
 
+<<>>= CODE FOR LOADING 2 EXCEL SHEETS AND OUTPUTTING 1 COMBINED SHEET FOR MOTOR VEHICLE STOPS
+library(tidyverse)
+library(readxl)
+
+# read .csv files into separate data frames
+Cells2019 <- read_csv("C:/Users/USER/Desktop/Jaycee is a cool nerd/datathon4justice/full.text.2019.column.names.csv",  col_names=TRUE)
+Cells2020 <- read_csv("C:/Users/USER/Desktop/Jaycee is a cool nerd/datathon4justice/full.text.2020.fix.csv", col_names=TRUE)
+
+# remove extraneous cells from each data frame
+Cells2019 <- Cells2019%>% select(-`...10`)
+Cells2020 <- Cells2020%>% select(-c(`Other1`,`Other2`))
+  
+police.dat <- rbind(Cells2019,Cells2020)
+
+police.dat <- police.dat%>%
+  mutate(MVS = if_else(grepl('VEHICLE STOP', `Reason For Call/Patrol Officer Name`,
+                             ignore.case = TRUE), TRUE, FALSE)) %>% # keep motor vehicle stops
+  filter(MVS==TRUE)%>%select(-c(MVS,`Car/Race`))%>% # delete columns
+  rename(Race =`Race/Gender`, Gender = `Gender/Extra Information`,
+         `Reason For Call` = `Reason For Call/Patrol Officer Name`)%>% # rename columns
+  mutate(Outcome = case_when(
+    grepl('WARNING', `Reason For Call`, ignore.case = TRUE) ~ 3,
+    grepl('ARREST', `Reason For Call`, ignore.case = TRUE) ~ 7,
+    grepl('vi', `Reason For Call`, ignore.case = TRUE) ~ 4,
+    grepl('CRIMINAL', `Reason For Call`, ignore.case = TRUE) ~ 5,
+    grepl('ACTION', `Reason For Call`, ignore.case = TRUE) ~ 2,
+    grepl('TOWED', `Reason For Call`, ignore.case = TRUE) ~ 5,
+    grepl('SERVICE', `Reason For Call`, ignore.case = TRUE) ~ 1))%>%
+  mutate(Gender = gsub("'","",as.character(Gender)))
+
+# 1: SERVICES RENDERED: police helped you
+# 2: NO ACTION REQUIRED
+# 3: WARNING: no legal action, or fines/paperwork
+# 4: CIVIL CITATION: ticket/fine 
+# 5: CRIMINAL COMPLAINT: crime probably committed
+# 6: VEHICLE TOWED
+# 7: ARRREST 
+
+
+write.csv(police.dat,"C:/Users/USER/Desktop/Jaycee is a cool nerd/datathon4justice/Motor Vehicle Stops Data.csv", row.names = FALSE)
+  
+@
 \end{document}
