@@ -2,7 +2,7 @@
 
 \begin{document}
 
-<<>>=
+<<>>= CODE FOR LOADING 2 EXCEL SHEETS AND OUTPUTTING 1 COMBINED SHEET FOR MOTOR VEHICLE STOPS
 library(tidyverse)
 library(readxl)
 
@@ -32,12 +32,12 @@ police.dat <- police.dat%>%
     grepl('SERVICE', `Reason For Call`, ignore.case = TRUE) ~ 1))%>%
   mutate(Gender = gsub("'","",as.character(Gender)))
 
-# 6: VEHICLE TOWED
 # 1: SERVICES RENDERED: police helped you
 # 2: NO ACTION REQUIRED
 # 3: WARNING: no legal action, or fines/paperwork
 # 4: CIVIL CITATION: ticket/fine 
 # 5: CRIMINAL COMPLAINT: crime probably committed
+# 6: VEHICLE TOWED
 # 7: ARRREST 
 
 
