@@ -2,37 +2,6 @@
 
 \begin{document}
 
-<<>>= CODE FOR CONVERTING PNG FILES INTO A TXT FILE
-library(tesseract) # 'tesseract' library
-full.text1 <- NULL
-for(i1 in 1:100){ # retrieve the text from "Logs2019OCR1.png" to "Logs2019OCR100.png"
-  current.text1 <- tesseract::ocr(paste("Logs2019OCR_", i, ".png", sep=""))
-  full.text1 <- paste(full.text1,current.text1)
-}
-sink(file="full.text_.txt") # output file name
-full.text1
-sink()
-
-@
-
-<<>>= CODE FOR COMBINING TXT FILES INTO ONE
-library(tidyverse)
-library(readr)
-
-file.output <- file("full.text.txt",)          # create output file
-myfiles<-list.files(path="*insert path file*", # specify folder to retrieve txt files
-                    pattern="*.txt", full.names=TRUE)
-
-# append all txt files into a single one
-for (i in 1:length(myfiles)){
-  string <- read_file(myfiles[i])
-  write(string, file="full.text.txt", append=TRUE) 
-}
-close(file.output)
-
-# note: the txt files are ordered (file01, file02, ...)
-@
-
 <<>>= CODE FOR LOADING 2 EXCEL SHEETS AND OUTPUTTING 1 COMBINED SHEET FOR MOTOR VEHICLE STOPS
 library(tidyverse)
 library(readxl)
@@ -59,7 +28,7 @@ police.dat <- police.dat%>%
     grepl('vi', `Reason For Call`, ignore.case = TRUE) ~ 4,
     grepl('CRIMINAL', `Reason For Call`, ignore.case = TRUE) ~ 5,
     grepl('ACTION', `Reason For Call`, ignore.case = TRUE) ~ 2,
-    grepl('TOWED', `Reason For Call`, ignore.case = TRUE) ~ 5,
+    grepl('TOWED', `Reason For Call`, ignore.case = TRUE) ~ 6,
     grepl('SERVICE', `Reason For Call`, ignore.case = TRUE) ~ 1))%>%
   mutate(Gender = gsub("'","",as.character(Gender)))
 

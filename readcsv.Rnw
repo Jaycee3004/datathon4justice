@@ -28,7 +28,7 @@ police.dat <- police.dat%>%
     grepl('vi', `Reason For Call`, ignore.case = TRUE) ~ 4,
     grepl('CRIMINAL', `Reason For Call`, ignore.case = TRUE) ~ 5,
     grepl('ACTION', `Reason For Call`, ignore.case = TRUE) ~ 2,
-    grepl('TOWED', `Reason For Call`, ignore.case = TRUE) ~ 5,
+    grepl('TOWED', `Reason For Call`, ignore.case = TRUE) ~ 6,
     grepl('SERVICE', `Reason For Call`, ignore.case = TRUE) ~ 1))%>%
   mutate(Gender = gsub("'","",as.character(Gender)))
 
