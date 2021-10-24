@@ -1,7 +1,3 @@
-library(pdftools)
-logs.2019 <- pdf_text("Logs2019OCR.pdf")
-logs.2020 <- pdf_text("Logs2020OCR.pdf")
-
 library(tidyverse)
 ft.2019 <- read_csv("full.text.2019.column.names.csv")
 ft.2019 <- ft.2019 %>% filter(!is.na(ft.2019$`Reason For Call/Patrol Officer Name`))
@@ -24,4 +20,25 @@ ft.2019 <- ft.2019 %>% mutate("Street" =
                                           str_detect(ft.2019$`Street/Unit`, "ST") ~ ft.2019$`Street/Unit`,
                                           str_detect(ft.2019$`Street/Unit`, "TER") ~ ft.2019$`Street/Unit`,
                                           TRUE ~ ""))
+ft.2019 <- ft.2019 %>% mutate("Unit" =
+                                case_when(nchar(ft.2019$`Street/Unit`) < 6 ~ ft.2019$`Street/Unit`,
+                                          nchar(ft.2019$`Unit/Car`) < 11 ~ ft.2019$`Unit/Car`,
+                                          TRUE ~ ""))
+ft.2019 <- ft.2019 %>% mutate("Vehicle" =
+                                case_when(ft.2019$`Unit/Car` != ft.2019$Unit ~ ft.2019$`Unit/Car`,
+                                          nchar(ft.2019$`Car/Race`) > 1 ~ ft.2019$`Car/Race`,
+                                          TRUE ~ ""))
 
+ft.2019 <- ft.2019 %>% mutate("Race" =
+                                case_when(nchar(ft.2019$`Car/Race`) < 2 ~ ft.2019$`Car/Race`,
+                                          nchar(ft.2019$`Race/Gender`) < 2  ~ ft.2019$`Race/Gender`,
+                                          TRUE ~ ""))
+
+ft.2019 <- ft.2019 %>% mutate("Gender" =
+                                case_when(ft.2019$`Race/Gender` != ft.2019$Race ~ ft.2019$`Race/Gender`,
+                                          nchar(ft.2019$`Gender/Extra Information`) < 3 ~ ft.2019$`Gender/Extra Information`,
+                                          TRUE ~ ""))
+
+ft.2019 <- ft.2019 %>% mutate("Extra Information" =
+                                case_when(ft.2019$`Gender/Extra Information` != ft.2019$Gender ~ ft.2019$`Gender/Extra Information`,
+                                          TRUE ~ ft.2019$...10))
